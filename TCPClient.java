@@ -55,6 +55,8 @@ import java.util.Scanner;
 
       	//clarification process (text/file decision)
 			out.println(medium); // Client sends medium information to server
+			
+			out.println("weeeeee");
 			t0 = System.currentTimeMillis();
 
 			// Communication while loop
