@@ -34,9 +34,9 @@ public class TCPClient {
             System.exit(1);
         }
         // Variables for message passing
-        String file = "file.txt";
-        Reader reader = new FileReader(file);
-        BufferedReader fromFile =  new BufferedReader(reader); // reader for the string file
+        String file = "file.mp4";
+        //Reader reader = new FileReader(file);
+        //BufferedReader fromFile =  new BufferedReader(reader); // reader for the string file
         String fromServer; // messages received from ServerRouter
         String fromUser; // messages sent to ServerRouter
         String address ="192.168.1.186"; // destination IP (Server)
@@ -46,6 +46,7 @@ public class TCPClient {
         logger.write("File Size in KB: "+(int)fileSize);
         long t0, t1, t;
         String medium = "";
+        int i = file.lastIndexOf('.');
 
         // Communication process (initial sends/receives
         out.println(address);// initial send (IP of the destination Server)
@@ -54,30 +55,15 @@ public class TCPClient {
         out.println(host); // Client sends the IP of its machine as initial send
         t0 = System.currentTimeMillis();
 
-
-
-        //Client is supposed to talk first, this code does so.
-        fromUser = fromFile.readLine(); // reading strings from a file
-        if (fromUser != null) {
-            System.out.println("Client: " + fromUser);
-            out.println(fromUser); // sending the strings to the Server via ServerRouter
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        String tempHolder = "";
+        while((bytesRead = bis.read(buffer))!=-1){
+            out.println(tempHolder = new String(buffer, 0, bytesRead));
+            out.flush();
         }
-        // Communication while loop
-        while ((fromServer = in.readLine()) != null) {
-            System.out.println("Server: " + fromServer);
-            t1 = System.currentTimeMillis();
-            if (fromServer.equals("Bye.")) // exit statement
-                break;
-            t = t1 - t0;
-            logger.write("Transmission Time (Milliseconds): " + (int) t);
-            System.out.println("Cycle time: " + t);
-            fromUser = fromFile.readLine(); // reading strings from a file
-            if (fromUser != null) {
-                System.out.println("Client: " + fromUser);
-                out.println(fromUser); // sending the strings to the Server via ServerRouter
-                t0 = System.currentTimeMillis();
-            }
-        }
+
         // closing connections
         out.close();
         in.close();
