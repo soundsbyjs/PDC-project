@@ -1,5 +1,3 @@
-package com.company;
-
 import java.io.*;
 import java.net.*;
 import java.nio.*;
@@ -7,7 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class TCPClient {
+class TCPClient {
     public static void main(String[] args) throws IOException {
 
         // Variables for setting up connection and communication
@@ -16,7 +14,7 @@ public class TCPClient {
         BufferedReader in = null; // for reading form ServerRouter
         InetAddress addr = InetAddress.getLocalHost();
         String host = addr.getHostAddress(); // Client machine's IP
-        String routerName = "192.168.1.86"; // ServerRouter host name
+        String routerName = "34.69.245.2"; // ServerRouter host name
         int SockNum = 5555; // port number
 
         // Tries to connect to the ServerRouter
@@ -39,7 +37,7 @@ public class TCPClient {
         //BufferedReader fromFile =  new BufferedReader(reader); // reader for the string file
         String fromServer; // messages received from ServerRouter
         String fromUser; // messages sent to ServerRouter
-        String address ="192.168.1.186"; // destination IP (Server)
+        String address ="107.213.209.167"; // destination IP (Server)
         FileWriter logger = new FileWriter("ClientLog.txt") ;
         File sizer = new File(file);
         double fileSize = sizer.length()/1024;
