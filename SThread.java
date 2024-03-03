@@ -15,9 +15,8 @@ public class SThread extends Thread
 	private Boolean isVideo;
 
 	// Constructor
-	SThread(Object [][] Table, Socket toClient, int index, Boolean isVideo) throws IOException
+	SThread(Object [][] Table, Socket toClient, int index) throws IOException
 	{
-
 			out = new PrintWriter(toClient.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(toClient.getInputStream()));
 			RTable = Table;
