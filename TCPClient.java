@@ -38,7 +38,7 @@ import java.util.Scanner;
 		BufferedReader fromFile =  new BufferedReader(reader); // reader for the string file
         String fromServer; // messages received from ServerRouter
         String fromUser; // messages sent to ServerRouter
-			String address ="10.5.2.109"; // destination IP (Server)
+			String address ="nerdmusic.net"; // destination IP (Server)
 			long t0, t1, t;
         String medium = "T";//used to determine if a file or a text message is being sent
 
