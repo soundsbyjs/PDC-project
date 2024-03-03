@@ -35,7 +35,7 @@ import java.awt.desktop.*;
       	// Variables for message passing			
          String fromServer; // messages sent to ServerRouter
          String fromClient; // messages received from ServerRouter      
- 			String address ="34.69.245.2"; // destination IP (Client)
+ 			String address ="172.17.0.1"; // destination IP (Client)
 			
 			// Communication process (initial sends/receives)
 			out.println(address);// initial send (IP of the destination Client)

@@ -12,10 +12,12 @@ public class SThread extends Thread
 	private String inputLine, outputLine, destination, addr; // communication strings
 	private Socket outSocket; // socket for communicating with a destination
 	private int ind; // indext in the routing table
+	private Boolean isVideo;
 
 	// Constructor
-	SThread(Object [][] Table, Socket toClient, int index) throws IOException
+	SThread(Object [][] Table, Socket toClient, int index, Boolean isVideo) throws IOException
 	{
+
 			out = new PrintWriter(toClient.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(toClient.getInputStream()));
 			RTable = Table;
