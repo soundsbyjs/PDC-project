@@ -4,7 +4,7 @@ import java.util.Base64;
 import java.awt.Desktop;
 import java.awt.desktop.*;
 
-    public class TCPServer {
+    class TCPServer {
        public static void main(String[] args) throws IOException {
       	
 			// Variables for setting up connection and communication

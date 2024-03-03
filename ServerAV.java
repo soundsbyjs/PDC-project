@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 
 
-public class TCPServer {
+class TCPServer {
    public static void main(String[] args) throws IOException {
 
 
